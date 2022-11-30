@@ -1,12 +1,14 @@
 package com.example.colorpicker.ui.dashboard;
 
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,18 +20,27 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.colorpicker.R;
 import com.example.colorpicker.databinding.FragmentDashboardBinding;
+import com.example.colorpicker.ui.scoreCalculator;
 
 public class DashboardFragment extends Fragment {
 
     private FragmentDashboardBinding binding;
 
 
-    EditText foreground, background;
+
+
+    EditText foreground, background, viewTxtForeGround;
 
     EditText RBackground, GBackground, BBackground;
     EditText RForeground, GForeground, BForeground;
 
-    ConstraintLayout layforeground, laybackground;
+
+
+    Color backgroundColor, foregroundColor;
+    Button score;
+    TextView scoreView, aaalarge, aaanormal, aalarge, aanormal;
+
+    ConstraintLayout laybackground;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -42,7 +53,7 @@ public class DashboardFragment extends Fragment {
 
         foreground = root.findViewById(R.id.Foreground_edittxt);
         background = root.findViewById(R.id.Background_Edittxt);
-        layforeground = root.findViewById(R.id.Foreground_layout);
+        viewTxtForeGround = root.findViewById(R.id.foreground_txtEdit_view);
         laybackground = root.findViewById(R.id.Background_layout);
 
         RBackground = (EditText)root.findViewById(R.id.R_Background_edittxt);
@@ -52,6 +63,14 @@ public class DashboardFragment extends Fragment {
         RForeground = (EditText)root.findViewById(R.id.R_Foreground_edittxt);
         GForeground = (EditText)root.findViewById(R.id.G_Foreground_edittxt);
         BForeground = (EditText)root.findViewById(R.id.B_Foreground_edittxt);
+
+        aaalarge = root.findViewById(R.id.large_AAA_view);
+        aalarge = root.findViewById(R.id.large_AA_view);
+        aaanormal = root.findViewById(R.id.normal_AAA_view);
+        aanormal = root.findViewById(R.id.normal_AA_view);
+
+        score = root.findViewById(R.id.score);
+        scoreView = root.findViewById(R.id.score_view);
 
         foreground.addTextChangedListener(new TextWatcher() {
             @Override
@@ -105,7 +124,34 @@ public class DashboardFragment extends Fragment {
             }
         });
 
-
+        score.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scoreCalculator calculator = new scoreCalculator();
+                scoreView.setText("Score : " + calculator.getConstrastRatio5DigitRound(foregroundColor, backgroundColor));
+                if(calculator.getConstrastRatio5DigitRound(foregroundColor, backgroundColor) < 7){
+                    aaanormal.setVisibility(View.INVISIBLE);
+                }  else {
+                    aaanormal.setVisibility(View.VISIBLE);
+                    aanormal.setVisibility(View.VISIBLE);
+                    aaalarge.setVisibility(View.VISIBLE);
+                    aalarge.setVisibility(View.VISIBLE);
+                }
+                if (calculator.getConstrastRatio5DigitRound(foregroundColor, backgroundColor) < 4.5){
+                    aanormal.setVisibility(View.INVISIBLE);
+                    aaalarge.setVisibility(View.INVISIBLE);
+                    aaanormal.setVisibility(View.INVISIBLE);
+                    //TODO AA NORMAL  et AAA large
+                }
+                if (calculator.getConstrastRatio5DigitRound(foregroundColor, backgroundColor) < 3){
+                    aalarge.setVisibility(View.INVISIBLE);
+                    aanormal.setVisibility(View.INVISIBLE);
+                    aaalarge.setVisibility(View.INVISIBLE);
+                    aaanormal.setVisibility(View.INVISIBLE);
+                    //TODO AA large
+                }
+            }
+        });
 
         return root;
     }
@@ -132,7 +178,7 @@ public class DashboardFragment extends Fragment {
 
             Toast.makeText(getActivity(), "VOTRE COULEUR N'EXISTE PAS", Toast.LENGTH_SHORT).show();
         }
-        layforeground.setBackgroundColor(color);
+        viewTxtForeGround.setTextColor(color);
         loadRGBForegroud(color);
 
     }
@@ -159,6 +205,9 @@ public class DashboardFragment extends Fragment {
         RBackground.setText(red);
         GBackground.setText(green);
         BBackground.setText(blue);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            backgroundColor = Color.valueOf(Color.red(color), Color.green(color), Color.blue(color));
+        }
     }
 
     private void loadRGBForegroud(int color){
@@ -168,5 +217,8 @@ public class DashboardFragment extends Fragment {
         RForeground.setText(red);
         GForeground.setText(green);
         BForeground.setText(blue);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            foregroundColor = Color.valueOf(Color.red(color), Color.green(color), Color.blue(color));
+        }
     }
 }
