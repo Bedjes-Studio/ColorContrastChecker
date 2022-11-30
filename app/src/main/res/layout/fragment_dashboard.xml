@@ -128,30 +128,31 @@
             android:id="@+id/normal_AA_view"
             android:layout_width="75dp"
             android:layout_height="34dp"
-            android:layout_marginStart="11dp"
+            android:layout_marginStart="28dp"
             android:layout_marginTop="34dp"
             android:text="AA normal"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/normal_AAA_view"
             app:layout_constraintTop_toBottomOf="@+id/title_score_norme" />
 
         <TextView
             android:id="@+id/normal_AAA_view"
             android:layout_width="75dp"
             android:layout_height="34dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="34dp"
-            android:layout_marginEnd="48dp"
             android:text="AAA normal"
-            app:layout_constraintEnd_toStartOf="@+id/large_AA_view"
+            android:shadowColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title_score_norme" />
 
         <TextView
             android:id="@+id/large_AAA_view"
             android:layout_width="75dp"
             android:layout_height="34dp"
+            android:layout_marginStart="27dp"
             android:layout_marginTop="34dp"
-            android:layout_marginEnd="16dp"
             android:text="AAA large"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/normal_AA_view"
             app:layout_constraintTop_toBottomOf="@+id/title_score_norme" />
 
         <TextView
@@ -159,9 +160,9 @@
             android:layout_width="75dp"
             android:layout_height="34dp"
             android:layout_marginTop="34dp"
-            android:layout_marginEnd="14dp"
+            android:layout_marginEnd="16dp"
             android:text="AA large"
-            app:layout_constraintEnd_toStartOf="@+id/large_AAA_view"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title_score_norme" />
 
         <TextView
@@ -182,10 +183,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="154dp"
             android:layout_marginEnd="163dp"
-            android:layout_marginBottom="27dp"
-            android:text="Button"
+            android:layout_marginBottom="44dp"
+            android:text="Valider le réglage"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.455"
             app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -202,12 +204,12 @@
             android:id="@+id/foreground_txtEdit_view"
             android:layout_width="295dp"
             android:layout_height="51dp"
-            android:layout_marginStart="59dp"
+            android:layout_marginStart="44dp"
             android:layout_marginTop="28dp"
             android:ems="10"
 
             android:inputType="textPersonName"
-            android:text="Salut ça va "
+            android:text="Vous pouvez écrire ici"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -129,26 +129,22 @@ public class DashboardFragment extends Fragment {
             public void onClick(View view) {
                 scoreCalculator calculator = new scoreCalculator();
                 scoreView.setText("Score : " + calculator.getConstrastRatio5DigitRound(foregroundColor, backgroundColor));
+                aaanormal.setVisibility(View.VISIBLE);
+                aanormal.setVisibility(View.VISIBLE);
+                aaalarge.setVisibility(View.VISIBLE);
+                aalarge.setVisibility(View.VISIBLE);
+
                 if(calculator.getConstrastRatio5DigitRound(foregroundColor, backgroundColor) < 7){
                     aaanormal.setVisibility(View.INVISIBLE);
-                }  else {
-                    aaanormal.setVisibility(View.VISIBLE);
-                    aanormal.setVisibility(View.VISIBLE);
-                    aaalarge.setVisibility(View.VISIBLE);
-                    aalarge.setVisibility(View.VISIBLE);
-                }
-                if (calculator.getConstrastRatio5DigitRound(foregroundColor, backgroundColor) < 4.5){
+                }if (calculator.getConstrastRatio5DigitRound(foregroundColor, backgroundColor) < 4.5){
                     aanormal.setVisibility(View.INVISIBLE);
                     aaalarge.setVisibility(View.INVISIBLE);
                     aaanormal.setVisibility(View.INVISIBLE);
-                    //TODO AA NORMAL  et AAA large
-                }
-                if (calculator.getConstrastRatio5DigitRound(foregroundColor, backgroundColor) < 3){
+                }if (calculator.getConstrastRatio5DigitRound(foregroundColor, backgroundColor) < 3){
                     aalarge.setVisibility(View.INVISIBLE);
                     aanormal.setVisibility(View.INVISIBLE);
                     aaalarge.setVisibility(View.INVISIBLE);
                     aaanormal.setVisibility(View.INVISIBLE);
-                    //TODO AA large
                 }
             }
         });
