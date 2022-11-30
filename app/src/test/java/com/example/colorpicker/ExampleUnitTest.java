@@ -1,4 +1,4 @@
-package uqac.mobile.colorcontrastchecker;
+package com.example.colorpicker;
 
 import org.junit.Test;
 

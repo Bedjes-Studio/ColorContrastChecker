@@ -1,4 +1,4 @@
-package uqac.mobile.colorcontrastchecker;
+package com.example.colorpicker;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("uqac.mobile.colorcontrastchecker", appContext.getPackageName());
+        assertEquals("com.example.colorpicker", appContext.getPackageName());
     }
 }

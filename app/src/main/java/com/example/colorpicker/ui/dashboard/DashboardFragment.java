@@ -1,20 +1,28 @@
-package uqac.mobile.colorcontrastchecker;
+package com.example.colorpicker.ui.dashboard;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
-import android.annotation.SuppressLint;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Locale;
+import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.colorpicker.R;
+import com.example.colorpicker.databinding.FragmentDashboardBinding;
+
+public class DashboardFragment extends Fragment {
+
+    private FragmentDashboardBinding binding;
+
 
     EditText foreground, background;
 
@@ -23,23 +31,27 @@ public class MainActivity extends AppCompatActivity {
 
     ConstraintLayout layforeground, laybackground;
 
-    @SuppressLint("ResourceType")
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        foreground = findViewById(R.id.Foreground_edittxt);
-        background = findViewById(R.id.Background_Edittxt);
-        layforeground = findViewById(R.id.Foreground_layout);
-        laybackground = findViewById(R.id.Background_layout);
 
-        RBackground = (EditText) findViewById(R.id.R_Background_edittxt);
-        GBackground = (EditText)findViewById(R.id.G_Background_edittxt);
-        BBackground = (EditText)findViewById(R.id.B_Background_edittxt);
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+        DashboardViewModel dashboardViewModel =
+                new ViewModelProvider(this).get(DashboardViewModel.class);
 
-        RForeground = (EditText)findViewById(R.id.R_Foreground_edittxt);
-        GForeground = (EditText)findViewById(R.id.G_Foreground_edittxt);
-        BForeground = (EditText)findViewById(R.id.B_Foreground_edittxt);
+        binding = FragmentDashboardBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
+
+        foreground = root.findViewById(R.id.Foreground_edittxt);
+        background = root.findViewById(R.id.Background_Edittxt);
+        layforeground = root.findViewById(R.id.Foreground_layout);
+        laybackground = root.findViewById(R.id.Background_layout);
+
+        RBackground = (EditText)root.findViewById(R.id.R_Background_edittxt);
+        GBackground = (EditText)root.findViewById(R.id.G_Background_edittxt);
+        BBackground = (EditText)root.findViewById(R.id.B_Background_edittxt);
+
+        RForeground = (EditText)root.findViewById(R.id.R_Foreground_edittxt);
+        GForeground = (EditText)root.findViewById(R.id.G_Foreground_edittxt);
+        BForeground = (EditText)root.findViewById(R.id.B_Foreground_edittxt);
 
         foreground.addTextChangedListener(new TextWatcher() {
             @Override
@@ -53,11 +65,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                    if (charSequence.length() > 5) {
-                        String color = "#";
-                        color += charSequence;
-                        changeColorForeGround(color);
-                    }
+                if (charSequence.length() > 5) {
+                    String color = "#";
+                    color += charSequence;
+                    changeColorForeGround(color);
+                }
             }
 
             @Override
@@ -92,7 +104,20 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
+
+        return root;
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
+    }
+
+
+
 
 
 
@@ -104,7 +129,8 @@ public class MainActivity extends AppCompatActivity {
             color = Color.parseColor(colorString.toUpperCase());
         } catch (Exception e){
             e.printStackTrace();
-            Toast.makeText(this, "VOTRE COULEUR N'EXISTE PAS", Toast.LENGTH_SHORT).show();
+
+            Toast.makeText(getActivity(), "VOTRE COULEUR N'EXISTE PAS", Toast.LENGTH_SHORT).show();
         }
         layforeground.setBackgroundColor(color);
         loadRGBForegroud(color);
@@ -118,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
             color = Color.parseColor(colorString.toUpperCase());
         } catch (Exception e){
             e.printStackTrace();
-            Toast.makeText(this, "VOTRE COULEUR N'EXISTE PAS", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "VOTRE COULEUR N'EXISTE PAS", Toast.LENGTH_SHORT).show();
         }
         laybackground.setBackgroundColor(color);
         loadRGBBackgroud(color);
