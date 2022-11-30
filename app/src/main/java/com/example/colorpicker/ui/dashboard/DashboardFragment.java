@@ -40,7 +40,7 @@ public class DashboardFragment extends Fragment {
     Button score;
     TextView scoreView, aaalarge, aaanormal, aalarge, aanormal;
 
-    ConstraintLayout laybackground;
+    ConstraintLayout laybackground, backgroundColorLayout, foregroundColorLayout;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -64,10 +64,14 @@ public class DashboardFragment extends Fragment {
         GForeground = (EditText)root.findViewById(R.id.G_Foreground_edittxt);
         BForeground = (EditText)root.findViewById(R.id.B_Foreground_edittxt);
 
+
         aaalarge = root.findViewById(R.id.large_AAA_view);
         aalarge = root.findViewById(R.id.large_AA_view);
         aaanormal = root.findViewById(R.id.normal_AAA_view);
         aanormal = root.findViewById(R.id.normal_AA_view);
+
+        backgroundColorLayout = root.findViewById(R.id.layout_background_color);
+        foregroundColorLayout = root.findViewById(R.id.layout_foreground_color);
 
         score = root.findViewById(R.id.score);
         scoreView = root.findViewById(R.id.score_view);
@@ -127,24 +131,31 @@ public class DashboardFragment extends Fragment {
         score.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                scoreCalculator calculator = new scoreCalculator();
-                scoreView.setText("Score : " + calculator.getConstrastRatio5DigitRound(foregroundColor, backgroundColor));
-                aaanormal.setVisibility(View.VISIBLE);
-                aanormal.setVisibility(View.VISIBLE);
-                aaalarge.setVisibility(View.VISIBLE);
-                aalarge.setVisibility(View.VISIBLE);
+                if (backgroundColor != null && foregroundColor != null) {
+                    scoreCalculator calculator = new scoreCalculator();
+                    scoreView.setText("Score : " + calculator.getConstrastRatio5DigitRound(foregroundColor, backgroundColor));
+                    aaanormal.setVisibility(View.VISIBLE);
+                    aanormal.setVisibility(View.VISIBLE);
+                    aaalarge.setVisibility(View.VISIBLE);
+                    aalarge.setVisibility(View.VISIBLE);
 
-                if(calculator.getConstrastRatio5DigitRound(foregroundColor, backgroundColor) < 7){
-                    aaanormal.setVisibility(View.INVISIBLE);
-                }if (calculator.getConstrastRatio5DigitRound(foregroundColor, backgroundColor) < 4.5){
-                    aanormal.setVisibility(View.INVISIBLE);
-                    aaalarge.setVisibility(View.INVISIBLE);
-                    aaanormal.setVisibility(View.INVISIBLE);
-                }if (calculator.getConstrastRatio5DigitRound(foregroundColor, backgroundColor) < 3){
-                    aalarge.setVisibility(View.INVISIBLE);
-                    aanormal.setVisibility(View.INVISIBLE);
-                    aaalarge.setVisibility(View.INVISIBLE);
-                    aaanormal.setVisibility(View.INVISIBLE);
+                    if (calculator.getConstrastRatio5DigitRound(foregroundColor, backgroundColor) < 7) {
+                        aaanormal.setVisibility(View.INVISIBLE);
+                    }
+                    if (calculator.getConstrastRatio5DigitRound(foregroundColor, backgroundColor) < 4.5) {
+                        aanormal.setVisibility(View.INVISIBLE);
+                        aaalarge.setVisibility(View.INVISIBLE);
+                        aaanormal.setVisibility(View.INVISIBLE);
+                    }
+                    if (calculator.getConstrastRatio5DigitRound(foregroundColor, backgroundColor) < 3) {
+                        aalarge.setVisibility(View.INVISIBLE);
+                        aanormal.setVisibility(View.INVISIBLE);
+                        aaalarge.setVisibility(View.INVISIBLE);
+                        aaanormal.setVisibility(View.INVISIBLE);
+                        Toast.makeText(getActivity(), "Votre association ne respecte aucune norme", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(getActivity(), "Selectionnez les deux couleurs", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -175,6 +186,7 @@ public class DashboardFragment extends Fragment {
             Toast.makeText(getActivity(), "VOTRE COULEUR N'EXISTE PAS", Toast.LENGTH_SHORT).show();
         }
         viewTxtForeGround.setTextColor(color);
+        foregroundColorLayout.setBackgroundColor(color);
         loadRGBForegroud(color);
 
     }
@@ -189,6 +201,7 @@ public class DashboardFragment extends Fragment {
             Toast.makeText(getActivity(), "VOTRE COULEUR N'EXISTE PAS", Toast.LENGTH_SHORT).show();
         }
         laybackground.setBackgroundColor(color);
+        backgroundColorLayout.setBackgroundColor(color);
         loadRGBBackgroud(color);
     }
 
