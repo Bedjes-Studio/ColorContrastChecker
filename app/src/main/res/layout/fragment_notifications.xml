@@ -10,20 +10,111 @@
         android:id="@+id/image1"
         android:layout_width="275dp"
         android:layout_height="231dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginBottom="356dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_marginTop="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
     </ImageView>
 
-    <Button
-        android:id="@+id/test"
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="142dp"
-        android:layout_marginTop="85dp"
-        android:text="Button"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image1" />
+        app:layout_constraintTop_toBottomOf="@+id/image1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/color_1_btn"
+                android:layout_width="60dp"
+                android:layout_height="60dp"                />
+
+            <TextView
+                android:id="@+id/color_tw_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/activity_vertical_margin"
+                android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+                android:layout_weight="1"
+                android:text=" : Color 1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_margin="10dp">
+
+            <Button
+                android:id="@+id/color_2_btn"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/color_tw_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/activity_vertical_margin"
+                android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+                android:layout_weight="1"
+                android:text=" : Color 2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_margin="10dp">
+
+            <Button
+                android:id="@+id/color_3_btn"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/color_tw_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+                android:layout_weight="1"
+                android:textSize="@dimen/activity_vertical_margin"
+                android:text=" : Color 3" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_margin="10dp">
+
+            <Button
+                android:id="@+id/color_4_btn"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/color_tw_4"
+                android:layout_width="wrap_content"
+                android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="@dimen/activity_vertical_margin"
+                android:text=" : Color 4"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
