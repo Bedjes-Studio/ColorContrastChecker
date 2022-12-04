@@ -1,10 +1,12 @@
 package com.example.colorpicker.ui.home;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -23,6 +25,7 @@ public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
 
     Button button1, button2, button3, button4;
+    ImageButton ibtn1, ibtn2, ibtn3, ibtn4;
     ConstraintLayout constraintLayout;
     int defaultColor;
     TextView colorNumber1, colorNumber2, colorNumber3, colorNumber4;
@@ -43,10 +46,14 @@ public class HomeFragment extends Fragment {
         colorNumber2 = (TextView) root.findViewById(R.id.colorNumber2);
         colorNumber3 = (TextView) root.findViewById(R.id.colorNumber3);
         colorNumber4 = (TextView) root.findViewById(R.id.colorNumber4);
+        ibtn1 = (ImageButton) root.findViewById(R.id.ibtn1);
+        ibtn2 = (ImageButton) root.findViewById(R.id.ibtn2);
+        ibtn3 = (ImageButton) root.findViewById(R.id.ibtn3);
+        ibtn4 = (ImageButton) root.findViewById(R.id.ibtn4);
 
         constraintLayout = (ConstraintLayout) root.findViewById(R.id.layout);
 
-        defaultColor = ContextCompat.getColor(this.getContext(), com.google.android.material.R.color.design_default_color_primary);
+        defaultColor = ContextCompat.getColor(this.getContext(), R.color.black);
         colorNumber1.setText(Integer.toHexString(defaultColor));
         colorNumber2.setText(Integer.toHexString(defaultColor));
         colorNumber3.setText(Integer.toHexString(defaultColor));
@@ -77,6 +84,42 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 openColorPicker(4);
+            }
+        });
+
+        ibtn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String color = colorNumber1.getText().toString();
+                button1.setBackgroundColor(Color.parseColor('#' + color));
+
+            }
+        });
+
+        ibtn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String color = colorNumber2.getText().toString();
+                button2.setBackgroundColor(Color.parseColor('#' + color));
+
+            }
+        });
+
+        ibtn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String color = colorNumber3.getText().toString();
+                button3.setBackgroundColor(Color.parseColor('#' + color));
+
+            }
+        });
+
+        ibtn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String color = colorNumber4.getText().toString();
+                button4.setBackgroundColor(Color.parseColor('#' + color));
+
             }
         });
 
