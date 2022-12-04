@@ -25,7 +25,7 @@ public class HomeFragment extends Fragment {
     Button button1, button2, button3, button4;
     ConstraintLayout constraintLayout;
     int defaultColor;
-    TextView colorNumber;
+    TextView colorNumber1, colorNumber2, colorNumber3, colorNumber4;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -39,11 +39,18 @@ public class HomeFragment extends Fragment {
         button2 = (Button) root.findViewById(R.id.btn2);
         button3 = (Button) root.findViewById(R.id.btn3);
         button4 = (Button) root.findViewById(R.id.btn4);
-        colorNumber = (TextView) root.findViewById(R.id.colorNumber);
+        colorNumber1 = (TextView) root.findViewById(R.id.colorNumber1);
+        colorNumber2 = (TextView) root.findViewById(R.id.colorNumber2);
+        colorNumber3 = (TextView) root.findViewById(R.id.colorNumber3);
+        colorNumber4 = (TextView) root.findViewById(R.id.colorNumber4);
 
         constraintLayout = (ConstraintLayout) root.findViewById(R.id.layout);
 
-        defaultColor = ContextCompat.getColor(this.getContext(), R.color.white);
+        defaultColor = ContextCompat.getColor(this.getContext(), com.google.android.material.R.color.design_default_color_primary);
+        colorNumber1.setText(Integer.toHexString(defaultColor));
+        colorNumber2.setText(Integer.toHexString(defaultColor));
+        colorNumber3.setText(Integer.toHexString(defaultColor));
+        colorNumber4.setText(Integer.toHexString(defaultColor));
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,20 +96,23 @@ public class HomeFragment extends Fragment {
                 switch (num_btn){
                     case 1:{
                         button1.setBackgroundColor(defaultColor);
+                        colorNumber1.setText(Integer.toHexString(defaultColor));
                     }break;
                     case 2:{
                         button2.setBackgroundColor(defaultColor);
+                        colorNumber2.setText(Integer.toHexString(defaultColor));
                     }break;
                     case 3:{
                         button3.setBackgroundColor(defaultColor);
+                        colorNumber3.setText(Integer.toHexString(defaultColor));
                     }break;
                     case 4:{
                         button4.setBackgroundColor(defaultColor);
+                        colorNumber4.setText(Integer.toHexString(defaultColor));
                     }break;
                     default:
                         break;
                 };
-                colorNumber.setText(String.valueOf(defaultColor)); //color.parseColor
             }
         });
         ambilWarnaDialog.show();
