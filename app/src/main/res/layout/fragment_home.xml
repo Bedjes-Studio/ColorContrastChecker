@@ -55,8 +55,7 @@
                 android:layout_height="38dp"
                 android:layout_weight="0"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="FF000000" />
+                android:inputType="textPersonName" />
 
             <ImageButton
                 android:id="@+id/ibtn1"
@@ -77,8 +76,7 @@
                 android:layout_height="38dp"
                 android:layout_weight="0"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="FF000000" />
+                android:inputType="textPersonName" />
 
             <ImageButton
                 android:id="@+id/ibtn2"
@@ -184,8 +182,7 @@
                 android:layout_height="38dp"
                 android:layout_weight="0"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="FF000000" />
+                android:inputType="textPersonName" />
 
             <ImageButton
                 android:id="@+id/ibtn3"
@@ -206,8 +203,7 @@
                 android:layout_height="38dp"
                 android:layout_weight="0"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="FF000000" />
+                android:inputType="textPersonName" />
 
             <ImageButton
                 android:id="@+id/ibtn4"

@@ -2,6 +2,7 @@ package com.example.colorpicker.ui.home;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,7 @@ public class HomeFragment extends Fragment {
     ConstraintLayout constraintLayout;
     int defaultColor;
     TextView colorNumber1, colorNumber2, colorNumber3, colorNumber4;
+    String test;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -38,7 +40,6 @@ public class HomeFragment extends Fragment {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
         button1 = (Button) root.findViewById(R.id.btn1);
         button2 = (Button) root.findViewById(R.id.btn2);
         button3 = (Button) root.findViewById(R.id.btn3);
@@ -51,6 +52,8 @@ public class HomeFragment extends Fragment {
         ibtn2 = (ImageButton) root.findViewById(R.id.ibtn2);
         ibtn3 = (ImageButton) root.findViewById(R.id.ibtn3);
         ibtn4 = (ImageButton) root.findViewById(R.id.ibtn4);
+
+        System.out.println("test" + colorNumber1.getText().toString());
 
         constraintLayout = (ConstraintLayout) root.findViewById(R.id.layout);
 
@@ -168,6 +171,7 @@ public class HomeFragment extends Fragment {
                     case 1:{
                         button1.setBackgroundColor(defaultColor);
                         colorNumber1.setText(colorH);
+                        test = colorH;
                     }break;
                     case 2:{
                         button2.setBackgroundColor(defaultColor);
