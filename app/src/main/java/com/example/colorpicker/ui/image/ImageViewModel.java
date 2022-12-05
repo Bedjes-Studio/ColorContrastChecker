@@ -1,14 +1,14 @@
-package com.example.colorpicker.ui.notifications;
+package com.example.colorpicker.ui.image;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class NotificationsViewModel extends ViewModel {
+public class ImageViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public NotificationsViewModel() {
+    public ImageViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is notifications fragment");
     }

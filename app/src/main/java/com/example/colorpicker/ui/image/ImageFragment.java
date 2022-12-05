@@ -1,4 +1,4 @@
-package com.example.colorpicker.ui.notifications;
+package com.example.colorpicker.ui.image;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -11,9 +11,10 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Base64;
-import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -27,15 +28,14 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.palette.graphics.Palette;
 
 import com.example.colorpicker.R;
-import com.example.colorpicker.databinding.FragmentNotificationsBinding;
+import com.example.colorpicker.databinding.FragmentImageBinding;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.List;
 
-public class NotificationsFragment extends Fragment {
+public class ImageFragment extends Fragment {
 
-    private FragmentNotificationsBinding binding;
+    private FragmentImageBinding binding;
 
     ImageView imageView;
 
@@ -46,12 +46,37 @@ public class NotificationsFragment extends Fragment {
 
     private static final int RESULT_LOAD_IMAGE = 1000;
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.help, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.help: {
+                // navigate to settings screen
+                Toast.makeText(getContext(), "help image", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        NotificationsViewModel notificationsViewModel =
-                new ViewModelProvider(this).get(NotificationsViewModel.class);
-        binding = FragmentNotificationsBinding.inflate(inflater, container, false);
+
+        ImageViewModel imageViewModel =
+                new ViewModelProvider(this).get(ImageViewModel.class);
+        binding = FragmentImageBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
 
@@ -74,7 +99,7 @@ public class NotificationsFragment extends Fragment {
             public void onClick(View view) {
                 Button button = (Button) view;
                 ClipboardManager clipboard = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
-                ClipData clip = ClipData.newPlainText("Color", button.getText());
+                ClipData clip = ClipData.newPlainText("Color", button.getText().toString().substring(1));
                 clipboard.setPrimaryClip(clip);
                 Toast.makeText(getContext(), "Couleur copiée dans le presse papier", Toast.LENGTH_SHORT).show();
             }
