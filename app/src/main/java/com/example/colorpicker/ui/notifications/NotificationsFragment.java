@@ -50,7 +50,7 @@ public class NotificationsFragment extends Fragment {
         binding = FragmentNotificationsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         image1 = root.findViewById(R.id.image1);
-        mainColor = root.findViewById(R.id.test);
+        //mainColor = root.findViewById(R.id.test);
         Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         image1.setOnClickListener(new View.OnClickListener() {
             @Override
