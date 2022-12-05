@@ -1,6 +1,9 @@
 package com.example.colorpicker.ui.home;
 
 import android.app.AlertDialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -32,6 +35,8 @@ public class PaletteFragment extends Fragment {
 
     Button button1, button2, button3, button4;
     ImageButton ibtn1, ibtn2, ibtn3, ibtn4;
+    ImageButton cpy1, cpy2, cpy3, cpy4;
+
     ConstraintLayout constraintLayout;
     int defaultColor;
     TextView colorNumber1, colorNumber2, colorNumber3, colorNumber4;
@@ -87,6 +92,11 @@ public class PaletteFragment extends Fragment {
         ibtn2 = (ImageButton) root.findViewById(R.id.ibtn2);
         ibtn3 = (ImageButton) root.findViewById(R.id.ibtn3);
         ibtn4 = (ImageButton) root.findViewById(R.id.ibtn4);
+
+        cpy1 = (ImageButton) root.findViewById(R.id.cpy1);
+        cpy2 = (ImageButton) root.findViewById(R.id.cpy2);
+        cpy3 = (ImageButton) root.findViewById(R.id.cpy3);
+        cpy4 = (ImageButton) root.findViewById(R.id.cpy4);
 
         System.out.println("test" + colorNumber1.getText().toString());
 
@@ -186,7 +196,73 @@ public class PaletteFragment extends Fragment {
             }
         });
 
+        cpy1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    String color = colorNumber1.getText().toString();
+                    int colorInt = 0;
+                    colorInt = Color.parseColor('#' + color.toUpperCase());
+                    copyToClipboard(color.toUpperCase());
+                } catch (Exception e){
+                    e.printStackTrace();
+                    Toast.makeText(getActivity(), "VOTRE COULEUR N'EXISTE PAS", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        cpy2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    String color = colorNumber2.getText().toString();
+                    int colorInt = 0;
+                    colorInt = Color.parseColor('#' + color.toUpperCase());
+                    copyToClipboard(color.toUpperCase());
+                } catch (Exception e){
+                    e.printStackTrace();
+                    Toast.makeText(getActivity(), "VOTRE COULEUR N'EXISTE PAS", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        cpy3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    String color = colorNumber3.getText().toString();
+                    int colorInt = 0;
+                    colorInt = Color.parseColor('#' + color.toUpperCase());
+                    copyToClipboard(color.toUpperCase());
+                } catch (Exception e){
+                    e.printStackTrace();
+                    Toast.makeText(getActivity(), "VOTRE COULEUR N'EXISTE PAS", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        cpy4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    String color = colorNumber4.getText().toString();
+                    int colorInt = 0;
+                    colorInt = Color.parseColor('#' + color.toUpperCase());
+                    copyToClipboard(color.toUpperCase());
+                } catch (Exception e){
+                    e.printStackTrace();
+                    Toast.makeText(getActivity(), "VOTRE COULEUR N'EXISTE PAS", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
         return root;
+    }
+
+    private void copyToClipboard(String string) {
+        ClipboardManager clipboard = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipData clip = ClipData.newPlainText("Color", string);
+        clipboard.setPrimaryClip(clip);
+        Toast.makeText(getContext(), "Couleur copiée dans le presse papier", Toast.LENGTH_SHORT).show();
     }
 
     public void openColorPicker(int num_btn){
