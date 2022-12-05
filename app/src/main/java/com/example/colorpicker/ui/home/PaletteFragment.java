@@ -55,7 +55,7 @@ public class PaletteFragment extends Fragment {
                 // navigate to settings screen
                 AlertDialog alertDialog = new AlertDialog.Builder(getContext()).create();
                 alertDialog.setTitle("Comment utiliser le mode Palete ?");
-                alertDialog.setMessage("Cette section permet de gérer une palette de couleurs.\n\nChoisissez une couleur en cliquant sur l'une des boîtes ou en écrivant le code couleur en héxadécimal (ne pas ajouter le \"#\").");
+                alertDialog.setMessage("Cette section permet de gérer une palette de couleurs.\n\nChoisissez une couleur en cliquant sur l'une des boîtes ou en écrivant le code couleur en héxadécimal (ne pas ajouter le \"#\") puis en cliquant sur le crayon.");
                 alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Compris !",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
