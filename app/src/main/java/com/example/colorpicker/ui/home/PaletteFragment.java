@@ -1,5 +1,7 @@
 package com.example.colorpicker.ui.home;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -51,8 +53,16 @@ public class PaletteFragment extends Fragment {
         switch (item.getItemId()) {
             case R.id.help: {
                 // navigate to settings screen
-                Toast.makeText(getContext(), "help home", Toast.LENGTH_SHORT).show();
-                return true;
+                AlertDialog alertDialog = new AlertDialog.Builder(getContext()).create();
+                alertDialog.setTitle("Comment utiliser le mode Palete ?");
+                alertDialog.setMessage("Cette section permet de gérer une palette de couleurs.\n\nChoisissez une couleur en cliquant sur l'une des boîtes ou en écrivant le code couleur en héxadécimal (ne pas ajouter le \"#\").");
+                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Compris !",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                alertDialog.show();                return true;
             }
             default:
                 return super.onOptionsItemSelected(item);

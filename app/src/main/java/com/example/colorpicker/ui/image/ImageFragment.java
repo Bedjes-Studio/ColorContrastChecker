@@ -65,10 +65,9 @@ public class ImageFragment extends Fragment {
         switch (item.getItemId()) {
             case R.id.help: {
                 // navigate to settings screen
-                Toast.makeText(getContext(), "help image", Toast.LENGTH_SHORT).show();
                 AlertDialog alertDialog = new AlertDialog.Builder(getContext()).create();
-                alertDialog.setTitle("Image");
-                alertDialog.setMessage("Cette section permet de générer un thème à partir d'une image.\n\nCliquez sur l'image pour en choisir une nouvelle. Cliquez sur l'une des quatres boites pour copier sa couleur dans le presse papier.");
+                alertDialog.setTitle("Comment utiliser le mode Image ?");
+                alertDialog.setMessage("Cette section permet de générer un thème à partir d'une image.\n\nCliquez sur l'image pour en choisir une nouvelle. Cliquez sur l'une des quatres boîtes pour copier sa couleur dans le presse papier.");
                 alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Compris !",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
