@@ -52,7 +52,6 @@ public class PaletteFragment extends Fragment {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.help: {
-                // navigate to settings screen
                 AlertDialog alertDialog = new AlertDialog.Builder(getContext()).create();
                 alertDialog.setTitle("Comment utiliser le mode Palete ?");
                 alertDialog.setMessage("Cette section permet de gérer une palette de couleurs.\n\nChoisissez une couleur en cliquant sur l'une des boîtes ou en écrivant le code couleur en héxadécimal (ne pas ajouter le \"#\") puis en cliquant sur le crayon.");

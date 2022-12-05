@@ -1,5 +1,7 @@
 package com.example.colorpicker.ui.dashboard;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -56,8 +58,16 @@ public class ContrastFragment extends Fragment {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.help: {
-                // navigate to settings screen
-                Toast.makeText(getContext(), "help dashboard", Toast.LENGTH_SHORT).show();
+                AlertDialog alertDialog = new AlertDialog.Builder(getContext()).create();
+                alertDialog.setTitle("Comment utiliser le mode Contraste ?");
+                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Compris !",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                alertDialog.setMessage("Cette section permet vérifier si les couleurs choisies sont assez contrastés pour du texte.\n\nÉcrivez la couleur d'arrière plan et d'avant au format hexadécimal (sans le \"#\") puis cliquez sur \"tester la combinaison\".\n\nLe score de contraste est ensuite calculé. Nous avons défini 4 cas d'utilisation, pour chacun des cas, il est indiqué si l'utilisation est conseillée ou non. Utilisez la zone de texte libre pour vos essais !");
+                alertDialog.show();
                 return true;
             }
             default:

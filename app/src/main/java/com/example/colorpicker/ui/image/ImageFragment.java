@@ -64,7 +64,6 @@ public class ImageFragment extends Fragment {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.help: {
-                // navigate to settings screen
                 AlertDialog alertDialog = new AlertDialog.Builder(getContext()).create();
                 alertDialog.setTitle("Comment utiliser le mode Image ?");
                 alertDialog.setMessage("Cette section permet de générer un thème à partir d'une image.\n\nCliquez sur l'image pour en choisir une nouvelle. Cliquez sur l'une des quatres boîtes pour copier sa couleur dans le presse papier.");
