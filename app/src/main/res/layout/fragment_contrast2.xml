@@ -44,7 +44,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:shadowColor="@color/black"
-                android:text="AAA normal" />
+                android:text="AAA normal"
+                android:textAlignment="center" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
 
             <TextView
                 android:id="@+id/normal_AA_view"
@@ -52,7 +58,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:shadowColor="@color/black"
-                android:text="AA normal" />
+                android:text="AA normal"
+                android:textAlignment="center" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
 
             <TextView
                 android:id="@+id/large_AAA_view"
@@ -60,7 +72,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:shadowColor="@color/black"
-                android:text="AAA large" />
+                android:text="AAA large"
+                android:textAlignment="center" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
 
             <TextView
                 android:id="@+id/large_AA_view"
@@ -68,7 +86,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:shadowColor="@color/black"
-                android:text="AA large" />
+                android:text="AA large"
+                android:textAlignment="center" />
         </LinearLayout>
 
         <Button
@@ -157,15 +176,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_weight="5"
-                >
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -225,8 +242,8 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_weight="5">
+                android:layout_weight="5"
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="wrap_content"

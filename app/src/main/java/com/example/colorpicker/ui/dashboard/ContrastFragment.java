@@ -165,24 +165,25 @@ public class ContrastFragment extends Fragment {
                 if (backgroundColor != null && foregroundColor != null) {
                     scoreCalculator calculator = new scoreCalculator();
                     scoreView.setText("Score : " + calculator.getConstrastRatio5DigitRound(foregroundColor, backgroundColor));
-                    aaanormal.setVisibility(View.VISIBLE);
-                    aanormal.setVisibility(View.VISIBLE);
-                    aaalarge.setVisibility(View.VISIBLE);
-                    aalarge.setVisibility(View.VISIBLE);
+                    aaanormal.setBackgroundColor(Color.parseColor("#008000"));
+                    aanormal.setBackgroundColor(Color.parseColor("#008000"));
+                    aaalarge.setBackgroundColor(Color.parseColor("#008000"));
+                    aalarge.setBackgroundColor(Color.parseColor("#008000"));
+
 
                     if (calculator.getConstrastRatio5DigitRound(foregroundColor, backgroundColor) < 7) {
-                        aaanormal.setVisibility(View.INVISIBLE);
+                        aaanormal.setBackgroundColor(Color.parseColor("#D0342C"));
                     }
                     if (calculator.getConstrastRatio5DigitRound(foregroundColor, backgroundColor) < 4.5) {
-                        aanormal.setVisibility(View.INVISIBLE);
-                        aaalarge.setVisibility(View.INVISIBLE);
-                        aaanormal.setVisibility(View.INVISIBLE);
+                        aanormal.setBackgroundColor(Color.parseColor("#D0342C"));
+                        aaalarge.setBackgroundColor(Color.parseColor("#D0342C"));
+                        aaanormal.setBackgroundColor(Color.parseColor("#D0342C"));
                     }
                     if (calculator.getConstrastRatio5DigitRound(foregroundColor, backgroundColor) < 3) {
-                        aalarge.setVisibility(View.INVISIBLE);
-                        aanormal.setVisibility(View.INVISIBLE);
-                        aaalarge.setVisibility(View.INVISIBLE);
-                        aaanormal.setVisibility(View.INVISIBLE);
+                        aalarge.setBackgroundColor(Color.parseColor("#D0342C"));
+                        aanormal.setBackgroundColor(Color.parseColor("#D0342C"));
+                        aaalarge.setBackgroundColor(Color.parseColor("#D0342C"));
+                        aaanormal.setBackgroundColor(Color.parseColor("#D0342C"));
                         Toast.makeText(getActivity(), "Votre association ne respecte aucune norme", Toast.LENGTH_SHORT).show();
                     }
                 } else {
