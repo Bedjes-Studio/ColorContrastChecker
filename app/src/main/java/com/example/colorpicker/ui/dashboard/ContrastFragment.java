@@ -66,7 +66,7 @@ public class ContrastFragment extends Fragment {
                                 dialog.dismiss();
                             }
                         });
-                alertDialog.setMessage("Cette section permet vérifier si les couleurs choisies sont assez contrastés pour du texte.\n\nÉcrivez la couleur d'arrière plan et d'avant au format hexadécimal (sans le \"#\") puis cliquez sur \"tester la combinaison\".\n\nLe score de contraste est ensuite calculé. Nous avons défini 4 cas d'utilisation, pour chacun des cas, il est indiqué si l'utilisation est conseillée ou non. Utilisez la zone de texte libre pour vos essais !");
+                alertDialog.setMessage("Cette section permet vérifier si les couleurs choisies sont assez contrastés pour du texte.\n\nÉcrivez la couleur d'arrière plan et d'avant au format hexadécimal (sans le \"#\") puis cliquez sur \"tester la combinaison\".\n\nLe score de contraste est ensuite calculé. Nous avons défini 4 cas d'utilisation, pour chacun des cas, il est indiqué si l'utilisation est conseillée (en vert) ou non (en rouge). Utilisez la zone de texte libre pour vos essais !");
                 alertDialog.show();
                 return true;
             }
