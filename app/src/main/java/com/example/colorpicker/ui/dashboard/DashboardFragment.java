@@ -22,22 +22,17 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.colorpicker.R;
-import com.example.colorpicker.databinding.FragmentDashboardBinding;
+import com.example.colorpicker.databinding.FragmentContrastBinding;
 import com.example.colorpicker.ui.scoreCalculator;
 
 public class DashboardFragment extends Fragment {
 
-    private FragmentDashboardBinding binding;
-
-
-
+    private FragmentContrastBinding binding;
 
     EditText foreground, background, viewTxtForeGround;
 
     EditText RBackground, GBackground, BBackground;
     EditText RForeground, GForeground, BForeground;
-
-
 
     Color backgroundColor, foregroundColor;
     Button score;
@@ -74,7 +69,7 @@ public class DashboardFragment extends Fragment {
         DashboardViewModel dashboardViewModel =
                 new ViewModelProvider(this).get(DashboardViewModel.class);
 
-        binding = FragmentDashboardBinding.inflate(inflater, container, false);
+        binding = FragmentContrastBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         foreground = root.findViewById(R.id.Foreground_edittxt);
@@ -82,13 +77,13 @@ public class DashboardFragment extends Fragment {
         viewTxtForeGround = root.findViewById(R.id.foreground_txtEdit_view);
         laybackground = root.findViewById(R.id.Background_layout);
 
-        RBackground = (EditText)root.findViewById(R.id.R_Background_edittxt);
-        GBackground = (EditText)root.findViewById(R.id.G_Background_edittxt);
-        BBackground = (EditText)root.findViewById(R.id.B_Background_edittxt);
+        RBackground = (EditText) root.findViewById(R.id.R_Background_edittxt);
+        GBackground = (EditText) root.findViewById(R.id.G_Background_edittxt);
+        BBackground = (EditText) root.findViewById(R.id.B_Background_edittxt);
 
-        RForeground = (EditText)root.findViewById(R.id.R_Foreground_edittxt);
-        GForeground = (EditText)root.findViewById(R.id.G_Foreground_edittxt);
-        BForeground = (EditText)root.findViewById(R.id.B_Foreground_edittxt);
+        RForeground = (EditText) root.findViewById(R.id.R_Foreground_edittxt);
+        GForeground = (EditText) root.findViewById(R.id.G_Foreground_edittxt);
+        BForeground = (EditText) root.findViewById(R.id.B_Foreground_edittxt);
 
 
         aaalarge = root.findViewById(R.id.large_AAA_view);
@@ -126,7 +121,6 @@ public class DashboardFragment extends Fragment {
 
             }
         });
-
 
 
         background.addTextChangedListener(new TextWatcher() {
@@ -196,17 +190,12 @@ public class DashboardFragment extends Fragment {
     }
 
 
-
-
-
-
-
-    private void changeColorForeGround(String colorString){
+    private void changeColorForeGround(String colorString) {
         System.out.println(colorString);
         int color = 0;
         try {
             color = Color.parseColor(colorString.toUpperCase());
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
 
             Toast.makeText(getActivity(), "VOTRE COULEUR N'EXISTE PAS", Toast.LENGTH_SHORT).show();
@@ -217,12 +206,12 @@ public class DashboardFragment extends Fragment {
 
     }
 
-    private void changeColorBackGround(String colorString){
+    private void changeColorBackGround(String colorString) {
         System.out.println(colorString);
         int color = 0;
         try {
             color = Color.parseColor(colorString.toUpperCase());
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             Toast.makeText(getActivity(), "VOTRE COULEUR N'EXISTE PAS", Toast.LENGTH_SHORT).show();
         }
@@ -232,8 +221,7 @@ public class DashboardFragment extends Fragment {
     }
 
 
-
-    private void loadRGBBackgroud(int color){
+    private void loadRGBBackgroud(int color) {
         String red = String.valueOf(Color.red(color));
         String green = String.valueOf(Color.green(color));
         String blue = String.valueOf(Color.blue(color));
@@ -245,7 +233,7 @@ public class DashboardFragment extends Fragment {
         }
     }
 
-    private void loadRGBForegroud(int color){
+    private void loadRGBForegroud(int color) {
         String red = String.valueOf(Color.red(color));
         String green = String.valueOf(Color.green(color));
         String blue = String.valueOf(Color.blue(color));

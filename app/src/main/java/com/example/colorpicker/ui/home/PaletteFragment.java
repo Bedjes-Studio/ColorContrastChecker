@@ -2,7 +2,6 @@ package com.example.colorpicker.ui.home;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -21,13 +20,13 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.colorpicker.R;
-import com.example.colorpicker.databinding.FragmentHomeBinding;
+import com.example.colorpicker.databinding.FragmentPaletteBinding;
 
 import yuku.ambilwarna.AmbilWarnaDialog;
 
-public class HomeFragment extends Fragment {
+public class PaletteFragment extends Fragment {
 
-    private FragmentHomeBinding binding;
+    private FragmentPaletteBinding binding;
 
     Button button1, button2, button3, button4;
     ImageButton ibtn1, ibtn2, ibtn3, ibtn4;
@@ -62,10 +61,10 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+        PaletteViewModel paletteViewModel =
+                new ViewModelProvider(this).get(PaletteViewModel.class);
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentPaletteBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         button1 = (Button) root.findViewById(R.id.btn1);
         button2 = (Button) root.findViewById(R.id.btn2);
