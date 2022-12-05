@@ -25,7 +25,7 @@ import com.example.colorpicker.R;
 import com.example.colorpicker.databinding.FragmentContrastBinding;
 import com.example.colorpicker.ui.scoreCalculator;
 
-public class DashboardFragment extends Fragment {
+public class ContrastFragment extends Fragment {
 
     private FragmentContrastBinding binding;
 
@@ -66,8 +66,8 @@ public class DashboardFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        DashboardViewModel dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
+        ContrastViewModel contrastViewModel =
+                new ViewModelProvider(this).get(ContrastViewModel.class);
 
         binding = FragmentContrastBinding.inflate(inflater, container, false);
         View root = binding.getRoot();

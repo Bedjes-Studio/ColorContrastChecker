@@ -4,13 +4,13 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class DashboardViewModel extends ViewModel {
+public class ContrastViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public DashboardViewModel() {
+    public ContrastViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is dashboard fragment");
+        mText.setValue("This is contrast fragment");
     }
 
     public LiveData<String> getText() {
