@@ -2,9 +2,11 @@ package com.example.colorpicker.ui.image;
 
 import static android.app.Activity.RESULT_OK;
 
+import android.app.AlertDialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -27,6 +29,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.palette.graphics.Palette;
 
+import com.example.colorpicker.MainActivity;
 import com.example.colorpicker.R;
 import com.example.colorpicker.databinding.FragmentImageBinding;
 
@@ -63,6 +66,16 @@ public class ImageFragment extends Fragment {
             case R.id.help: {
                 // navigate to settings screen
                 Toast.makeText(getContext(), "help image", Toast.LENGTH_SHORT).show();
+                AlertDialog alertDialog = new AlertDialog.Builder(getContext()).create();
+                alertDialog.setTitle("Image");
+                alertDialog.setMessage("Cette section permet de générer un thème à partir d'une image.\n\nCliquez sur l'image pour en choisir une nouvelle. Cliquez sur l'une des quatres boites pour copier sa couleur dans le presse papier.");
+                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Compris !",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                alertDialog.show();
                 return true;
             }
             default:
