@@ -77,7 +77,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="15dp"
             android:layout_marginEnd="30dp"
             android:backgroundTint="@color/black"
             android:text="Tester la combinaison" />
@@ -86,7 +85,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="15dp"
             android:layout_marginEnd="16dp">
 
             <LinearLayout
@@ -143,7 +141,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="15dp"
             android:layout_marginEnd="16dp"
             android:orientation="vertical">
 
@@ -159,16 +156,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="25dp"
             android:layout_marginEnd="16dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            >
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 android:layout_weight="5"
-                android:gravity="center"
-                android:orientation="horizontal">
+                >
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -176,10 +173,9 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="R"
-                        android:textAlignment="center" />
+                        android:text="R" />
 
                     <EditText
                         android:id="@+id/R_Background_edittxt"
@@ -195,10 +191,9 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="G"
-                        android:textAlignment="center" />
+                        android:text="R" />
 
                     <EditText
                         android:id="@+id/G_Background_edittxt"
@@ -214,10 +209,9 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="B"
-                        android:textAlignment="center" />
+                        android:text="B" />
 
                     <EditText
                         android:id="@+id/B_Background_edittxt"
@@ -231,9 +225,8 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_weight="5">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -241,10 +234,9 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="R"
-                        android:textAlignment="center" />
+                        android:text="R" />
 
                     <EditText
                         android:id="@+id/R_Foreground_edittxt"
@@ -260,10 +252,9 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="G"
-                        android:textAlignment="center" />
+                        android:text="R" />
 
                     <EditText
                         android:id="@+id/G_Foreground_edittxt"
@@ -279,13 +270,12 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="B"
-                        android:textAlignment="center" />
+                        android:text="B" />
 
                     <EditText
-                        android:id="@+id/B_Foreground_edittxt"
+                        android:id="@+id/BR_Foreground_edittxt"
                         android:layout_width="40dp"
                         android:layout_height="wrap_content"
                         android:focusable="false"
