@@ -94,10 +94,10 @@ public class PaletteFragment extends Fragment {
         constraintLayout = (ConstraintLayout) root.findViewById(R.id.layout);
 
         defaultColor = ContextCompat.getColor(this.getContext(), R.color.black);
-        colorNumber1.setText(Integer.toHexString(defaultColor).substring(2));
-        colorNumber2.setText(Integer.toHexString(defaultColor).substring(2));
-        colorNumber3.setText(Integer.toHexString(defaultColor).substring(2));
-        colorNumber4.setText(Integer.toHexString(defaultColor).substring(2));
+        colorNumber1.setText("CC0000");
+        colorNumber2.setText("00CC00");
+        colorNumber3.setText("0000DD");
+        colorNumber4.setText("000000");
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,16 +130,15 @@ public class PaletteFragment extends Fragment {
         ibtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String color = colorNumber1.getText().toString();
-                int colorInt = 0;
-
                 try {
+                    String color = colorNumber1.getText().toString();
+                    int colorInt = 0;
                     colorInt = Color.parseColor('#' + color.toUpperCase());
+                    button1.setBackgroundColor(colorInt);
                 } catch (Exception e){
                     e.printStackTrace();
                     Toast.makeText(getActivity(), "VOTRE COULEUR N'EXISTE PAS", Toast.LENGTH_SHORT).show();
                 }
-                button1.setBackgroundColor(colorInt);
             }
         });
 
